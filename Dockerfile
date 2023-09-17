@@ -9,7 +9,10 @@ RUN DEBIAN_FRONTEND=noninteractive \
 
 ENV RUSTFLAGS="-C link-arg=-fuse-ld=lld"
 
-COPY . .
+COPY ./src ./src
+COPY ./Cargo.lock ./Cargo.lock
+COPY ./Cargo.toml ./Cargo.toml
+COPY ./entrypoint.sh ./entrypoint.sh
 
 RUN cargo build --release --all-targets
 
