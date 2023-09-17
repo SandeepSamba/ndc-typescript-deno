@@ -2,8 +2,8 @@ FROM rust:1.72-slim-buster AS build
 
 WORKDIR /app
 
-RUN apt-get update \
-  && DEBIAN_FRONTEND=noninteractive \
+RUN apt-get update 
+RUN DEBIAN_FRONTEND=noninteractive \
   apt-get install --no-install-recommends --assume-yes \
   lld libssl-dev ssh git pkg-config
 
